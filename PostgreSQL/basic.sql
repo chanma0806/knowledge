@@ -54,9 +54,9 @@ UPDATE test
 
 -- セルの削除
  -- 全削除
-DELETE test;
+DELETE FROM test;
  -- 一部削除(条件成立箇所のみ削除)
-DELETE test
+DELETE FROM test
     WHERE point = 0;
 
 --- 集約関数
