@@ -125,3 +125,6 @@ CREATE TABLE test2 (
 
 -- サーバーの起動
 $ postgrs -D [database_path]
+
+-- サーバーのクローズ
+$ pg_ctl -D [database_path] stop -m smart
