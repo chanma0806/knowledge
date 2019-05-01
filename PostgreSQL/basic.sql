@@ -29,6 +29,12 @@ SELECT fuga from hoge;
 -- where句(改行が必要)
 SELECT hoge from hoge
     WHERE fuga = 10;
+
+-- 比較演算子(不等)
+-- fuga != 10な行を選択
+SELECT hoge from hoge
+    WHERE fuga <> 10
+
 -- 抽出結果のソート(指定のパラメータは複数可能)
 SELECT * from hoge
     ORDER BY fuga desc;
