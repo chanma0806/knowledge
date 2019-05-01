@@ -106,6 +106,14 @@ post_num CHAR(8)
 my_name VARCHAR
 
 
+-- nullチェック
+--- hogeにnullが格納されている行を選択
+SELECT hoge FROM hoge
+    WHERE hoge IS NULL
+
+--- hogeにnullが格納されていない行を選択
+SELECT hoge FROM hoge
+    WHERE hoge IS NOT NULL
 
 --- 高度な機能 ----
 
