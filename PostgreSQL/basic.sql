@@ -91,6 +91,23 @@ SELECT hoge FROM hoge
 SELECT hoge FROM hoge
     WHERE fuga BETWEEN 100 AND 3000
 
+--- IN / NOT IN 演算子
+--- 値リストのいずれか含まれるかの真偽値
+SELECT hoge from hoge
+    WHERE hoge IN ('hoge', 'fuga')
+--- 否定形の場合
+SELECT hoge from hoge
+    WHERE hoge NOT IN ('hoge', 'fuga')
+
+--- ANY, ALLL 演算子
+--- 指定配列のいずれかで条件が成立する行を選択
+SELECT hoge from hoge
+    WHERE hoge < ANY (ARRAY[100, 1000])
+
+--- 指定配列の全てで条件が成立する行を選択
+SELECT hoge from hoge
+    WHERE hoge < ALL (ARRAY[100, 1000])
+
 --- GROUP BY旬
 -- student_nameごとにpointの最大値を抽出する
 SELECT max(point) FROM test
