@@ -75,6 +75,22 @@ SELECT student_name FROM test
     WHERE point = 
         (SELECT max(point) FROM test);
 
+
+--- LIKE 演算子
+
+--- fuga='like_fuga'が格納されている場合
+--- %は0以上の文字列を表し、下記の例では'like_'がこれに該当し'like_fuga'が検索にヒットする
+SELECT hoge FROM hoge
+    WHERE fuga LIKE '%fuga'
+--- 下記でも検索ヒット
+SELECT hoge FROM hoge
+    WHERE fuga LIKE '%fuga%'
+
+--- BETWEEN演算子
+--- 100 ~ 3000の範囲でヒットするfugaを選択。
+SELECT hoge FROM hoge
+    WHERE fuga BETWEEN 100 AND 3000
+
 --- GROUP BY旬
 -- student_nameごとにpointの最大値を抽出する
 SELECT max(point) FROM test
