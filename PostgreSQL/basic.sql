@@ -90,6 +90,17 @@ RETURNS DATE AS $$
     END;
 $$ LANGUAGE plpgsql;
 
+
+-- 型
+
+--- CHAR型 VARCHAR型
+--- CHAR型は指定バイト数でサイズ調整を行う。下記の例では格納文字数が8文字未満であっても8バイトの領域を確保する。
+post_num CHAR(8)
+--- VARCHAR型は格納文字数によってサイズが可変となる。
+my_name VARCHAR
+
+
+
 --- 高度な機能 ----
 
 -- ビュー
