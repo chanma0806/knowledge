@@ -148,6 +148,21 @@ SELECT hoge FROM hoge
 SELECT hoge FROM hoge
     WHERE hoge IS NOT NULL
 
+-- AND/OR 
+/* ORよりもANDの優先順位が高いため、下記の例では条件式2,3の結果を条件式1,4のORで評価する */
+SELECT * FROM hoge
+    WHERE hoge = 'hoge1' /*条件式1*/
+    OR hoge = 'hoge2' /*条件式2*/
+    AND fuga = 'fuga1' /*条件式3*/
+    OR fuga = 'fuga2' /*条件式4*/
+
+/* ORを優先したい場合は()で条件式を括る。下記の例では条件式1,2と条件式3,4の結果をANDで評価している */
+SELECT * FROM hoge
+    WHERE (hoge = 'hoge1' /*条件式1*/
+    OR hoge = 'hoge2' )/*条件式2*/
+    AND (fuga = 'fuga1' /*条件式3*/
+    OR fuga = 'fuga2') /*条件式4*/
+
 --- 高度な機能 ----
 
 -- ビュー
