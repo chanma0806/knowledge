@@ -53,6 +53,12 @@ ORDER BY hoge DESC
 OFFSET 2 ROWS
 FETCH NEXT 1 ROWS ONLY
 
+-- インデックスの付与
+/* 取得行の順列に沿ってインデックスを付与する
+   下記の場合は、hogeの降順並べ替えに沿ってインデックスを行う
+ */
+SELECT hoge , ROW_NUMBER() OVER (ORDER BY hoge DESC) FROM hoge
+
 --- テーブルの結合
 
 -- 内部結合
