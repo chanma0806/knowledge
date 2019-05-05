@@ -40,6 +40,19 @@ SELECT * from hoge
     ORDER BY fuga desc;
     -- asc: 昇順(初期値), desc: 降順
 
+-- 順・行数指定
+/* hogeの降順、先頭1行目から3行取得 */
+SELECT hoge, fuga FROM hoge
+ORDER BY hoge DESC
+OFFSET 0 ROWS
+FETCH NEXT 3 ROWS ONLY
+
+/* hogeの降順、先頭３行目から1行取得 */
+SELECT hoge, fuga FROM hoge
+ORDER BY hoge DESC
+OFFSET 2 ROWS
+FETCH NEXT 1 ROWS ONLY
+
 --- テーブルの結合
 
 -- 内部結合
