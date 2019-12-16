@@ -81,6 +81,16 @@ from .hoge2 import Hoge2
 ### main.py
 from hoge import Hoge1, Hoge2
 
+
+# 組み込み関数
+
+## filter()
+
+a = [1, 2, 3,4]
+b = list(filter(lambda x: x>1, a))
+# "b: [2, 3, 4]"
+    # filterの帰り値はfilter オブジェクトのため、listに型変換する必要あり
+
 # pandas基礎
 
 ### Dataframe・Seriesの各要素に関数を当ててたい場合
@@ -90,3 +100,17 @@ df["fuga"] = df["fuga"].apply(hoge) #Series全要素にhoge()を実行
 ### dataframeの表示サイズ調整
 pd.set_option("display.max_colwidth", 50)
     # カラムの横幅の最大文字数を50文字にする
+
+
+### read_csvのUnicodeDecodeErrorが解決しない場合の対処
+### 対処: codecsでfile読み込みした上で、read_tableでfileを読み込む
+import codecs
+with codecs.open("file/to/path", "r", "Shift-JIS", "ignore") as file:
+    df = pd.read_table(file, delimiter=",")
+    print(df)
+
+### nullチェック
+# 全て欠損値であればTrue
+df.isna().all()
+# 1箇所でも欠損値があればTrue
+df.isna().any()
