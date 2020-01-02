@@ -1,0 +1,13 @@
+// 画像の解像度を維持したい時
+
+.hoge {
+    background-image: url("hoge.png");
+    background-size: contain;
+    height: 100vh;
+    padding-right: calc(100vh * 400 / 350); // 350 x 400 のアスクペクト比で余白を確保する
+    position: relative;
+
+    .hoge-child {
+        position: absolute; // 子要素が親背景用のpaddingでずれるので、絶対値指定する
+    }
+}
