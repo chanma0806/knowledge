@@ -149,6 +149,26 @@ RETURNS DATE AS $$
 $$ LANGUAGE plpgsql;
 
 
+-- length
+/* 文字列の長さを返却する */
+select LENGTH(hoge_memo) from hoge;
+
+-- replace
+/* 文字列を置換する。hogeをfugaに置換 */
+select REPLACE(hoge, 'hoge', 'fuga') from hoge;
+
+-- concat
+/* 文字列を結合する。 文字列を複数結合する*/
+select CONCAT(hoge, ':', 'fuga') from hoge;
+
+-- round 
+/* 四捨五入。負の値は整数桁を示し、正の値は小数点以下を示す*/
+
+/* 10の位で四捨五入*/
+select ROUND(hoge, -2) from hoge;
+/* 小数第二位を四捨五入 */
+select ROUND(hoge, 2) from hoge;
+
 -- 型
 
 --- CHAR型 VARCHAR型
