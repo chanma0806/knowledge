@@ -50,5 +50,9 @@ ERROR: Disabling PEP 517 processing is invalid: project specifies a build backen
 
 **エラー要因**
 
-- `Pipfile`にてモジュールの指定間違いにより、pipenv環境と対応バージョンが噛み合ってなかった
-    - `notebook`ではなく、`jupyter`を指定していた
+- `pipenv lock`実行時に`notebook`の依存関係が整理されずに終了した。
+
+**解決方法**
+
+- `pipenv install [module]`で、依存関係の解決に失敗するモジュールだけ直接installし、lockファイルを作成しておく<br>
+  以後は、コマンドで自動生成された`Pipfile`に追記
